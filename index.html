@@ -28,17 +28,21 @@
 
     /* Sidebar styling */
     .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 220px;
-      height: 100%;
-      background-color: rgba(0,0,0,0.7);
-      padding-top: 50px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4); /* keep semi-transparent */
+  backdrop-filter: blur(10px); /* adds the blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
     }
 
     .sidebar h1 {
@@ -83,21 +87,31 @@
     }
 
     .content {
-      flex: 1;
-      min-width: 300px;
+  flex: 1;
+  min-width: 300px;
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 10px;
+}
+
     }
 
     .news {
-      flex: 1;
-      min-width: 300px;
-      background: rgba(0,0,0,0.6);
-      padding: 20px;
-      border-radius: 10px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeSlideUp 1s ease forwards;
-      animation-delay: 1.5s;
-    }
+  flex: 1;
+  min-width: 300px;
+  background: rgba(0,0,0,0.3); /* lighter semi-transparent background */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 1s ease forwards;
+  animation-delay: 1.5s;
+}
+
 
     .news h2 {
       margin-top: 0;
