@@ -6,36 +6,77 @@
   <title>My Linktree</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
+      font-family: 'Arial', sans-serif;
+      background: url('https://images.unsplash.com/photo-1606788075761-2e60c7b46045?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      justify-content: flex-start;
+      min-height: 100vh;
       margin: 0;
+      color: white;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+      padding-top: 50px;
     }
 
     h1 {
-      color: #333;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+      font-size: 3em;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+      width: 100%;
+      max-width: 300px;
     }
 
     .link-button {
       display: block;
-      width: 200px;
+      width: 100%;
       padding: 15px;
-      margin: 10px 0;
+      margin: 8px 0;
       text-align: center;
-      background-color: #4285F4;
+      background-color: rgba(66, 133, 244, 0.9);
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      transition: background-color 0.3s;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
     }
 
     .link-button:hover {
-      background-color: #357AE8;
+      background-color: rgba(52, 103, 208, 0.9);
+    }
+
+    .news {
+      width: 90%;
+      max-width: 600px;
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: left;
+      margin-bottom: 50px;
+    }
+
+    .news h2 {
+      margin-top: 0;
+    }
+
+    .news p {
+      margin: 10px 0;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      .link-button {
+        font-size: 0.9em;
+      }
     }
   </style>
 </head>
@@ -43,10 +84,22 @@
 
   <h1>My Linktree</h1>
 
-  <a href="https://www.google.com" class="link-button" target="_blank">Google 1</a>
-  <a href="https://www.google.com" class="link-button" target="_blank">Google 2</a>
-  <a href="https://www.google.com" class="link-button" target="_blank">Google 3</a>
-  <a href="https://www.google.com" class="link-button" target="_blank">Google 4</a>
+  <div class="button-container">
+    <a href="https://www.google.com" class="link-button" target="_blank">Google 1</a>
+    <a href="https://www.google.com" class="link-button" target="_blank">Google 2</a>
+    <a href="https://www.google.com" class="link-button" target="_blank">Google 3</a>
+    <a href="https://www.google.com" class="link-button" target="_blank">Google 4</a>
+    <a href="https://www.google.com" class="link-button" target="_blank">Google 5</a>
+    <a href="https://www.google.com" class="link-button" target="_blank">Google 6</a>
+    <a href="https://www.google.com" class="link-button" target="_blank">Google 7</a>
+  </div>
+
+  <div class="news">
+    <h2>Latest News</h2>
+    <p>📰 Big update! All buttons now lead to Google for testing purposes.</p>
+    <p>🌐 New background image added to make the page look cooler.</p>
+    <p>💡 Want more features? We could add icons, animations, or even a footer!</p>
+  </div>
 
 </body>
 </html>
