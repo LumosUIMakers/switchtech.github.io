@@ -3,55 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Animated Linktree</title>
+  <title>My Side Linktree</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background: url('top.jpg') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
       margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: url('top.jpg') no-repeat center top;
+      background-size: cover;
       color: white;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
-      padding-top: 50px;
       overflow-x: hidden;
     }
 
-    h1 {
-      margin-bottom: 20px;
-      font-size: 3em;
-      animation: fadeSlideDown 1s ease forwards;
-      opacity: 0;
+    /* Dark overlay to improve readability */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 0;
     }
 
-    .button-container {
+    /* Sidebar styling */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      padding-top: 50px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 40px;
-      width: 100%;
-      max-width: 300px;
+      z-index: 1;
+    }
+
+    .sidebar h1 {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeSlideDown 1s ease forwards;
     }
 
     .link-button {
       display: block;
-      width: 100%;
-      padding: 15px;
-      margin: 8px 0;
+      width: 80%;
+      padding: 12px;
+      margin: 10px 0;
       text-align: center;
       background-color: rgba(66, 133, 244, 0.9);
       color: white;
       text-decoration: none;
-      border-radius: 10px;
+      border-radius: 8px;
       font-weight: bold;
       transition: transform 0.3s, background-color 0.3s;
       opacity: 0;
-      transform: translateY(30px);
-      animation: fadeSlideUp 0.7s ease forwards;
+      transform: translateX(-30px);
+      animation: fadeSlideRight 0.7s ease forwards;
     }
 
     .link-button:hover {
@@ -59,14 +71,28 @@
       transform: scale(1.05);
     }
 
+    /* Main content area with two columns */
+    .main-container {
+      display: flex;
+      margin-left: 240px; /* sidebar width + spacing */
+      padding: 50px;
+      gap: 30px;
+      z-index: 1;
+      position: relative;
+      flex-wrap: wrap;
+    }
+
+    .content {
+      flex: 1;
+      min-width: 300px;
+    }
+
     .news {
-      width: 90%;
-      max-width: 600px;
+      flex: 1;
+      min-width: 300px;
       background: rgba(0,0,0,0.6);
       padding: 20px;
       border-radius: 10px;
-      text-align: left;
-      margin-bottom: 50px;
       opacity: 0;
       transform: translateY(20px);
       animation: fadeSlideUp 1s ease forwards;
@@ -95,21 +121,44 @@
       }
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
+    @keyframes fadeSlideRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 20px 10px;
+      }
+      .sidebar h1 {
+        width: 100%;
+        font-size: 1.5em;
+        margin-bottom: 10px;
       }
       .link-button {
-        font-size: 0.9em;
+        width: 45%;
+        margin: 5px;
+      }
+      .main-container {
+        margin-left: 0;
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
       }
     }
   </style>
 </head>
 <body>
 
-  <h1>My Animated Linktree</h1>
-
-  <div class="button-container">
+  <div class="sidebar">
+    <h1>My Linktree</h1>
     <a href="https://www.google.com" class="link-button" style="animation-delay: 0.2s;" target="_blank">Google 1</a>
     <a href="https://www.google.com" class="link-button" style="animation-delay: 0.4s;" target="_blank">Google 2</a>
     <a href="https://www.google.com" class="link-button" style="animation-delay: 0.6s;" target="_blank">Google 3</a>
@@ -119,11 +168,17 @@
     <a href="https://www.google.com" class="link-button" style="animation-delay: 1.4s;" target="_blank">Google 7</a>
   </div>
 
-  <div class="news">
-    <h2>Latest News</h2>
-    <p>📰 Big update! All buttons now lead to Google for testing purposes.</p>
-    <p>🌐 Background image is now hosted locally as top.jpg for GitHub Pages.</p>
-    <p>💡 Animations make the buttons and news fade in beautifully on page load.</p>
+  <div class="main-container">
+    <div class="content">
+      <p>💻 Here’s your main content area. You can add bio info, extra links, or anything you like.</p>
+      <p>🌐 The sidebar stays on the left, while the news is on the right.</p>
+    </div>
+    <div class="news">
+      <h2>Latest News</h2>
+      <p>📰 News section now floats on the right side of the page.</p>
+      <p>🌟 Smooth animations keep everything lively as you load the page.</p>
+      <p>📱 Fully responsive design for mobile devices.</p>
+    </div>
   </div>
 
 </body>
