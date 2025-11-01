@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Linktree</title>
+  <title>My Animated Linktree</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background: url('https://images.unsplash.com/photo-1606788075761-2e60c7b46045?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background: url('top.jpg') no-repeat center center fixed;
       background-size: cover;
       display: flex;
       flex-direction: column;
@@ -18,11 +18,14 @@
       color: white;
       text-shadow: 0 1px 3px rgba(0,0,0,0.7);
       padding-top: 50px;
+      overflow-x: hidden;
     }
 
     h1 {
       margin-bottom: 20px;
       font-size: 3em;
+      animation: fadeSlideDown 1s ease forwards;
+      opacity: 0;
     }
 
     .button-container {
@@ -45,11 +48,15 @@
       text-decoration: none;
       border-radius: 10px;
       font-weight: bold;
-      transition: 0.3s;
+      transition: transform 0.3s, background-color 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 0.7s ease forwards;
     }
 
     .link-button:hover {
       background-color: rgba(52, 103, 208, 0.9);
+      transform: scale(1.05);
     }
 
     .news {
@@ -60,6 +67,10 @@
       border-radius: 10px;
       text-align: left;
       margin-bottom: 50px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideUp 1s ease forwards;
+      animation-delay: 1.5s;
     }
 
     .news h2 {
@@ -68,6 +79,20 @@
 
     .news p {
       margin: 10px 0;
+    }
+
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeSlideDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 600px) {
@@ -82,23 +107,23 @@
 </head>
 <body>
 
-  <h1>My Linktree</h1>
+  <h1>My Animated Linktree</h1>
 
   <div class="button-container">
-    <a href="https://www.google.com" class="link-button" target="_blank">Google 1</a>
-    <a href="https://www.google.com" class="link-button" target="_blank">Google 2</a>
-    <a href="https://www.google.com" class="link-button" target="_blank">Google 3</a>
-    <a href="https://www.google.com" class="link-button" target="_blank">Google 4</a>
-    <a href="https://www.google.com" class="link-button" target="_blank">Google 5</a>
-    <a href="https://www.google.com" class="link-button" target="_blank">Google 6</a>
-    <a href="https://www.google.com" class="link-button" target="_blank">Google 7</a>
+    <a href="https://www.google.com" class="link-button" style="animation-delay: 0.2s;" target="_blank">Google 1</a>
+    <a href="https://www.google.com" class="link-button" style="animation-delay: 0.4s;" target="_blank">Google 2</a>
+    <a href="https://www.google.com" class="link-button" style="animation-delay: 0.6s;" target="_blank">Google 3</a>
+    <a href="https://www.google.com" class="link-button" style="animation-delay: 0.8s;" target="_blank">Google 4</a>
+    <a href="https://www.google.com" class="link-button" style="animation-delay: 1s;" target="_blank">Google 5</a>
+    <a href="https://www.google.com" class="link-button" style="animation-delay: 1.2s;" target="_blank">Google 6</a>
+    <a href="https://www.google.com" class="link-button" style="animation-delay: 1.4s;" target="_blank">Google 7</a>
   </div>
 
   <div class="news">
     <h2>Latest News</h2>
     <p>📰 Big update! All buttons now lead to Google for testing purposes.</p>
-    <p>🌐 New background image added to make the page look cooler.</p>
-    <p>💡 Want more features? We could add icons, animations, or even a footer!</p>
+    <p>🌐 Background image is now hosted locally as top.jpg for GitHub Pages.</p>
+    <p>💡 Animations make the buttons and news fade in beautifully on page load.</p>
   </div>
 
 </body>
