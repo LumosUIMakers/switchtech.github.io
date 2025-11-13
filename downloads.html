@@ -206,11 +206,55 @@
 </head>
 <body>
   
-  <div class="downloads">
-    <h2>downloads</h2>
-    <a href="https://www.google.com" class="download-btn" target="_blank">download 1</a>
-    <a href="https://www.google.com" class="download-btn" target="_blank">download 2</a>
+ <section class="downloads">
+  <h2>downloads</h2>
+  <div class="download-buttons">
+    <a href="https://google.com" class="download-btn">download 1</a>
+    <a href="https://google.com" class="download-btn">download 2</a>
   </div>
+</section>
 
+<style>
+.downloads {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  width: 80%;
+  margin: 60px auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.downloads h2 {
+  font-size: 2em;
+  color: white;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+}
+
+.download-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 20px 40px;
+  font-size: 1.2em;
+  color: white;
+  text-decoration: none;
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+}
+</style>
 </body>
 </html>
