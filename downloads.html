@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>my side linktree revamp</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: url('top.jpg') no-repeat center top;
+      background-size: cover;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 0;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .sidebar h1 {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeSlideDown 1s ease forwards;
+    }
+
+    .link-button {
+      display: block;
+      width: 80%;
+      padding: 12px;
+      margin: 10px 0;
+      text-align: center;
+      background-color: rgba(66, 133, 244, 0.9);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: transform 0.3s, background-color 0.3s;
+      opacity: 0;
+      transform: translateX(-30px);
+      animation: fadeSlideRight 0.7s ease forwards;
+    }
+
+    .link-button:hover {
+      background-color: rgba(52, 103, 208, 0.9);
+      transform: scale(1.05);
+    }
+
+    .main-container {
+      display: flex;
+      margin-left: 240px;
+      padding: 50px;
+      gap: 30px;
+      z-index: 1;
+      position: relative;
+      flex-wrap: wrap;
+    }
+
+    .content {
+      flex: 1;
+      min-width: 300px;
+      background: none;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .news {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 20px;
+      border-radius: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideUp 1s ease forwards;
+      animation-delay: 1.5s;
+    }
+
+    .news h2 {
+      margin-top: 0;
+    }
+
+    .downloads {
+      width: calc(100% - 240px);
+      margin-left: 240px;
+      text-align: center;
+      padding: 60px 20px;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      animation: fadeSlideUp 1s ease forwards;
+      animation-delay: 1.8s;
+    }
+
+    .downloads h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin: 15px;
+      padding: 20px 60px;
+      font-size: 1.2em;
+      color: white;
+      background: rgba(66,133,244,0.9);
+      border-radius: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s ease, background 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 1s ease forwards;
+    }
+
+    .download-btn:nth-child(2) {
+      animation-delay: 2s;
+    }
+
+    .download-btn:hover {
+      background: rgba(52,103,208,0.9);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeSlideDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeSlideRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 20px 10px;
+      }
+      .sidebar h1 {
+        width: 100%;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+      .link-button {
+        width: 45%;
+        margin: 5px;
+      }
+      .main-container {
+        margin-left: 0;
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+      }
+      .downloads {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h1>my linktree</h1>
+    <a href="https://www.google.com" class="link-button" style="animation-delay: 0.2s;" target="_blank">google 1</a>
+    <a href="https://www.google.com" class="link-button" style="animation-delay: 0.4s;" target="_blank">google 2</a>
+    <a href="https://www.google.com" class="link-button" style="animation-delay: 0.6s;" target="_blank">google 3</a>
+    <a href="https://www.google.com" class="link-button" style="animation-delay: 0.8s;" target="_blank">google 4</a>
+    <a href="https://www.google.com" class="link-button" style="animation-delay: 1s;" target="_blank">google 5</a>
+    <a href="https://www.google.com" class="link-button" style="animation-delay: 1.2s;" target="_blank">google 6</a>
+  </div>
+
+  <div class="main-container">
+    <div class="content">
+      <p>💻 this is your main content area</p>
+      <p>🌐 sidebar on the left, news on the right</p>
+    </div>
+    <div class="news">
+      <h2>latest news</h2>
+      <p>📰 your news updates go here</p>
+      <p>🌟 smooth animations and frosted blur</p>
+      <p>📱 responsive af on all screens</p>
+    </div>
+  </div>
+
+  <div class="downloads">
+    <h2>downloads</h2>
+    <a href="https://www.google.com" class="download-btn" target="_blank">download 1</a>
+    <a href="https://www.google.com" class="download-btn" target="_blank">download 2</a>
+  </div>
+
+</body>
+</html>
