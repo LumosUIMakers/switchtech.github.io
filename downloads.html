@@ -213,48 +213,57 @@
     <a href="https://google.com" class="download-btn">download 2</a>
   </div>
 </section>
+<div class="downloads">
+  <h2>downloads</h2>
+  <a href="https://www.google.com" class="download-btn" target="_blank">download 1</a>
+  <a href="https://www.google.com" class="download-btn" target="_blank">download 2</a>
+</div>
 
 <style>
 .downloads {
+  width: 100%;
   text-align: center;
   padding: 60px 20px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  border-radius: 20px;
-  width: 80%;
-  margin: 60px auto;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px; /* rounded corners */
+  margin-top: 40px;
 }
 
 .downloads h2 {
   font-size: 2em;
-  color: white;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
   letter-spacing: 2px;
-}
-
-.download-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
 }
 
 .download-btn {
   display: inline-block;
-  padding: 20px 40px;
+  margin: 15px;
+  padding: 20px 60px;
   font-size: 1.2em;
   color: white;
+  background: rgba(66,133,244,0.9);
+  border-radius: 15px; /* rounded corners */
   text-decoration: none;
-  background: linear-gradient(135deg, #4f46e5, #9333ea);
-  border-radius: 15px;
-  transition: all 0.3s ease;
+  font-weight: bold;
+  transition: transform 0.3s ease, background 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 1s ease forwards;
+}
+
+.download-btn:nth-child(2) {
+  animation-delay: 0.2s;
 }
 
 .download-btn:hover {
+  background: rgba(52,103,208,0.9);
   transform: scale(1.05);
-  background: linear-gradient(135deg, #6366f1, #a855f7);
 }
+</style>
+
 </style>
 </body>
 </html>
